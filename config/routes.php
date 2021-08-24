@@ -12,6 +12,8 @@ declare(strict_types=1);
 use Hyperf\HttpServer\Router\Router;
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
+Router::addRoute(['GET', 'HEAD'], '/ipquery/', 'App\Controller\IndexController@ipquery');
+Router::addRoute(['GET', 'HEAD'], '/info.php', 'App\Controller\IndexController@info');
 
 Router::get('/favicon.ico', function () {
     return '';

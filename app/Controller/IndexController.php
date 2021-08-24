@@ -10,17 +10,29 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 namespace App\Controller;
+use function Hyperf\ViewEngine\view;
 
 class IndexController extends AbstractController
 {
     public function index()
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
+        return view('index.index');
+    }
 
-        return [
-            'method' => $method,
-            'message' => "Hello {$user}.",
-        ];
+    public function ipquery()
+    {
+        return view('index.ipquery');
+    }
+
+    public function info()
+    {
+        $type = $this->request->input('type', 'xml');
+        $ip = $this->request->input('ip');
+        switch ($type) {
+            case 'json':
+
+
+
+        }
     }
 }
